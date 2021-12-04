@@ -17,7 +17,17 @@ function onLoginSubmit(event) {
   }
 
 function paintGreetings(username) {
-    greeting.innerText = `Hello ${username}`;
+    const date = new Date();
+    const hours = date.getHours();
+    let mention = 'Hello';
+    if(0<= hours && hours <= 4 || 20 < hours){
+        mention = 'Good evening';
+    } else if (hours < 12){
+        mention = 'Good morning';
+    } else{
+        mention = 'Good afternoon';
+    }
+    greeting.innerText = `${mention}, ${username}.`;
     // greeting.innerText = "Hello " + username;
     // 1. 변수와 string을 결합하고 싶다면 또는 변수를 string 안에 집어넣고 싶다면
     // ${변수명} 사용
